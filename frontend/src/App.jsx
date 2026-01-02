@@ -21,12 +21,17 @@ function App() {
   }, []);
 
   return (
-    <div style={{ maxWidth: "600px", margin: "40px auto" }}>
-      <h2>Contact Manager</h2>
-      <ContactForm refreshContacts={() => {}} />
-      <ContactList contacts={contacts} />
-    </div>
-  );
+  <div style={{ width: "100%", maxWidth: "600px" }}>
+    <h2 style={{ textAlign: "center", marginBottom: "15px" }}>
+      Contact Manager
+    </h2>
+
+    <ContactForm refreshContacts={() => {}} />
+    <ContactList contacts={contacts} />
+  </div>
+);
+
+
 }
 
 export default App;
