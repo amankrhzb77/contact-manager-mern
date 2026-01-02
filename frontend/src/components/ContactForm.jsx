@@ -29,7 +29,8 @@ const ContactForm = ({ refreshContacts }) => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/contacts", form);
+      await axios.post("https://contact-manager-mern-ey69.onrender.com/api/contacts",form);
+
 
       setForm({ name: "", email: "", phone: "", message: "" });
       setError("");
