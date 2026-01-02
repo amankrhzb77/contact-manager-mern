@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ maxWidth: "600px", margin: "auto" }}>
+    <div style={{ maxWidth: "600px", margin: "40px auto" }}>
       <h2>Contact Manager</h2>
       <ContactForm refreshContacts={() => {}} />
       <ContactList contacts={contacts} />
