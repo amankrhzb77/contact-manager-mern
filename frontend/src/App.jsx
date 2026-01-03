@@ -9,8 +9,9 @@ function App() {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const res = await axios.get("https://contact-manager-mern-ey69.onrender.com/api/contacts");
-
+        const res = await axios.get(
+          "https://contact-manager-mern-ey69.onrender.com/api/contacts"
+        );
         setContacts(res.data);
       } catch (error) {
         console.error("Error fetching contacts:", error);
@@ -21,17 +22,21 @@ function App() {
   }, []);
 
   return (
-  <div style={{ width: "100%", maxWidth: "600px" }}>
-    <h2 style={{ textAlign: "center", marginBottom: "15px" }}>
-      Contact Manager
-    </h2>
+    <div style={{ width: "100%", maxWidth: "600px" }}>
+      <h2 style={{ textAlign: "center", marginBottom: "15px" }}>
+        Contact Manager
+      </h2>
 
-    <ContactForm refreshContacts={() => {}} />
-    <ContactList contacts={contacts} />
-  </div>
-);
+      <ContactForm refreshContacts={() => {
+        // re-fetch contacts after submit
+        axios
+          .get("https://contact-manager-mern-ey69.onrender.com/api/contacts")
+          .then(res => setContacts(res.data));
+      }} />
 
-
+      <ContactList contacts={contacts} />
+    </div>
+  );
 }
 
 export default App;
